@@ -68,6 +68,10 @@ public class AllEventsController {
      */
     private Boolean flag = false;
 
+    @RequestMapping("/test")
+    public String test(){
+        return "redirect:index.html";
+    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public Map<String,Object> getAll() throws InterruptedException {
