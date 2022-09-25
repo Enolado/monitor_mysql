@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+BOOT-INF.classes.com.lwl.config.MonitorAutoConfiguration

@@ -1,7 +1,6 @@
 package com.lwl.monitor.mapper;
 
 
-import com.alibaba.druid.pool.DruidPooledConnection;
 import com.lwl.monitor.entity.*;
 import com.lwl.monitor.service.*;
 import com.lwl.monitor.utils.ConnectionUtil;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.*;
@@ -133,7 +133,7 @@ public class EventsMapperTest {
 
     @Test
     public void TestConnection(){
-        DruidPooledConnection connection = ConnectionUtil.getInstance().getConnection();
+        Connection connection = ConnectionUtil.getInstance().getConnection();
         System.out.println("connection = " + connection);
 
     }

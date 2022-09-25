@@ -66,17 +66,13 @@ public class AllEventsController {
     /**
      * 初次执行标志
      */
-    private Boolean flag = false;
+    private Boolean first_flag = false;
 
-    @RequestMapping("/test")
-    public String test(){
-        return "redirect:index.html";
-    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public Map<String,Object> getAll() throws InterruptedException {
         Map<String,Object> result = null;
-        if (flag) {
+        if (first_flag) {
             //复次访问,拿阻塞队列中的数据
             result = queue.take();
         } else {
@@ -104,7 +100,7 @@ public class AllEventsController {
             //拿队列中的数据
             result = queue.take();
             //避免多次执行定时任务
-            flag = true;
+            first_flag = true;
         }
         return result;
     }

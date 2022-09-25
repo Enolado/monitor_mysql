@@ -1,6 +1,6 @@
 #\u670D\u52A1\u5668 unicode文字编码标准
 server:
-  port: 200105
+  port: 20015
   servlet:
     session:
       timeout: 30m
@@ -23,6 +23,7 @@ spring:
     servlet:
       content-type: text/html       #模板的内容类型，默认为text/html，可不用配置
 
+#ctrl + /
   datasource:
     url: jdbc:mysql://localhost:3306/performance_schema?characterEncoding=utf-8&characterSetResults=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
     username: root
