@@ -3,18 +3,16 @@
 #### 介绍
 MySQL监控系统（前端基于Vue3.0，使用了Element-PlusUI框架/后端基于SpringBoot）
 
-#### 项目展示
-![输入图片说明](https://images.gitee.com/uploads/images/2021/1123/112950_c20aa910_9450095.png "060ccb260fa8b89ff1635a0ef1457d7.png")
-
-
 #### 安装教程
 直接执行startMonitor文件夹下的run程序即可启动程序,然后打开浏览器访问http://localhost:20015即可使用该程序
 
 #### 使用说明
-
 1.  由于该版本整合了前后端,所以不支持修改端口
 2.  在使用SQL语句测试,访问表时,请标识数据库,如db.table
 3.  该版本为了简化使用流程,前端代码进行了打包,若想查看前端VUE代码实现,请看[前后端初始代码](https://gitee.com/lwlspace/mysql-monitor)
+
+#### 项目展示
+![输入图片说明](https://images.gitee.com/uploads/images/2021/1123/112950_c20aa910_9450095.png "060ccb260fa8b89ff1635a0ef1457d7.png")
 
 #### 设计思路
 该项目是由MySQL5版本新增后的数据库模块Performance_schema性能板块监控为基础开发的
