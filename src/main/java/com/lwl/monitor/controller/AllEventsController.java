@@ -68,6 +68,9 @@ public class AllEventsController {
      */
     private Boolean first_flag = false;
 
+    public AllEventsController(){
+
+    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     public Map<String,Object> getAll() throws InterruptedException {

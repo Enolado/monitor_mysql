@@ -44,8 +44,8 @@ public class ProfileServiceImpl implements ProfileService {
                 BigDecimal duration = (BigDecimal) rs.getObject("Duration");
                 map.put(status, duration);
             }
-            //提交
-            connection.commit();
+            //回滚,不让测试语句影响磁盘数据
+            connection.rollback();
         } catch (Exception e) {
             //返回错误信息
             map.put("errorMsg", e.getMessage());
@@ -57,6 +57,8 @@ public class ProfileServiceImpl implements ProfileService {
             }
         } finally {
             try {
+                //保持监控数据源
+                connection.prepareStatement("use performance_schema").execute();
                 //一定需要关闭连接
                 connection.close();
             } catch (Exception e) {

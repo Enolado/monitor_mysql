@@ -31,9 +31,8 @@ public class ProfileController {
     @RequestMapping(value = "profile",method = RequestMethod.POST)
     public Map<String,Object> profile(@RequestBody() Profile profile){
         //有SQL注入问题,下版本更新
-        Map<String, Object> map = new HashMap<>();
-        //map = profileService.profile(profile);
-        map.put("此功能未开发,敬请期待","6666666");
+        Map<String, Object> map = new HashMap<>(1);
+        map = profileService.profile(profile);
         return map;
     }
 }
