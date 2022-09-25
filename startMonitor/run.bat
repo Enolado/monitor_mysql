@@ -1,0 +1,1 @@
+java -jar mysql_monitor-1.0-SNAPSHOT.jar
