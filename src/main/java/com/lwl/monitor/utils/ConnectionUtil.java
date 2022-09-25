@@ -1,11 +1,11 @@
 package com.lwl.monitor.utils;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.pool.DruidPooledConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 
@@ -24,12 +24,12 @@ public class ConnectionUtil {
     private static ConnectionUtil connectionUtil = null;
 
     @Autowired
-    private DataSource dataSource;
+    private DruidDataSource druidDataSource;
 
     @PostConstruct
     public void init(){
         connectionUtil = this;
-        connectionUtil.dataSource = this.dataSource;
+        connectionUtil.druidDataSource = this.druidDataSource;
     }
     /**
      * 获取实例
@@ -50,11 +50,10 @@ public class ConnectionUtil {
      * 获取连接
      * @return DruidPooledConnection
      */
-    public Connection getConnection(){
-
-        Connection connection = null;
+    public DruidPooledConnection getConnection(){
+        DruidPooledConnection connection = null;
         try {
-            connection = dataSource.getConnection();
+            connection = druidDataSource.getConnection();
             //手动控制事务
             connection.setAutoCommit(false);
         }catch (SQLException e){
